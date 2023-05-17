@@ -22,6 +22,10 @@ class Book extends Product{
     return "Weight: " . $this->weight . "KG";
   }
 
+  public function getSQLAddSyntax(){
+    return "INSERT INTO Book (SKU, Weight) VALUES ('".$this->getSku()."', ".$this->getWeight().")";
+  }
+
 }
 
 ?>

@@ -1,14 +1,3 @@
-<?php
-require "phpincludes/Credentials.php";
-//This is where all the logic resides in
-require "phpincludes/ProductsHandler.php";
-
-$skus = getSKUs();
-if(isset($_GET['sku'])){
-  addProduct();
-  header('Location: index.php');
-}
- ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -67,7 +56,7 @@ if(isset($_GET['sku'])){
   </script>
   <p></p>
   <?php
-    foreach($skus as $sku){?>
+    foreach($productsHandler->getSKUs() as $sku){?>
       <div id="<?php echo $sku;?>" hidden> </div>
     <?php } ?>
   <div class="container">
@@ -86,7 +75,7 @@ if(isset($_GET['sku'])){
     </div>
   </div>
   <hr>
-  <form class="form" id="product_form" action="addProduct.php" method="get">
+  <form class="form" id="product_form" action="add" method="get">
     <fieldset class="align-items-center">
       <div class="row mb-2">
         <label for="sku" class="offset-sm-1 col-sm-1 col-form-label">SKU</label>

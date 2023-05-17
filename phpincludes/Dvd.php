@@ -22,6 +22,10 @@ class Dvd extends Product{
     return "Size: " . $this->size . " MB";
   }
 
+  public function getSQLAddSyntax(){
+    return "INSERT INTO DVD (SKU, Size) VALUES ('".$this->getSku()."', ".$this->getSize().")";
+  }
+
 }
 
 ?>

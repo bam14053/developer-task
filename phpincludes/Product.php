@@ -6,6 +6,12 @@ abstract class Product {
   private $name;
   private $price;
 
+  public function __construct($sku, $name, $price){
+    $this->sku = $sku;
+    $this->name = $name;
+    $this->price = $price;
+  }
+
   public function setSku($sku){
     $this->sku = $sku;
   }
@@ -33,5 +39,6 @@ abstract class Product {
 
   public abstract function printProductInfo();
   public abstract function getSQLDeleteSyntax();
+  public abstract function getSQLAddSyntax();
 }
 ?>

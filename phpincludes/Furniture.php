@@ -40,6 +40,10 @@ class Furniture extends Product{
     return "Dimension: " . $this->height . "x" . $this->width . "x" . $this->length;
   }
 
+  public function getSQLAddSyntax(){
+    return "INSERT INTO Furniture (SKU, Height, Width, Length) VALUES ('".$this->getSku()."', ".$this->getHeight().", ".$this->getWidth().", ".$this->getLength().")";
+  }
+
 }
 
 ?>
