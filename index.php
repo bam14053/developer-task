@@ -16,14 +16,14 @@ $productsHandler->getProductsList();
 //First determine which page is loaded
 $q = str_replace('?', "",$_SERVER['QUERY_STRING']);
 if($q == "delete"){
-  include "phpincludes/delete.php";
+  include "phpincludes/delete/delete.php";
 }elseif ($q == "addProduct") {
-  include "phpincludes/addProductPage.php";
+  include "phpincludes/add/addProductPage.php";
 }elseif (strpos($q, 'add') === 0){
-  include "phpincludes/add.php";
+  include "phpincludes/add/add.php";
 }else{
   $products = $productsHandler->getProducts();
   //Show the page which list the products
-  include "phpincludes/showProductsPage.php";
+  include "phpincludes/show/showProductsPage.php";
 }
 ?>
