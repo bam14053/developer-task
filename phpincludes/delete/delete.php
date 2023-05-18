@@ -1,3 +1,3 @@
 <?php
-  if(isset($_POST["ids"]) $productsHandler->deleteProducts($_POST["ids"]);
+  if(isset($_POST["ids"])) $productsHandler->deleteProducts($_POST["ids"]);
 ?>
