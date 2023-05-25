@@ -1,4 +1,20 @@
 <?php
+
+//Necessary in order to avoid 'unwanted' input
+if(!in_array($_GET['productType'],Product::$children,true)) return;
+
+$class = $_GET['productType'];
+$product = new $class();
+foreach (get_class_methods($product) as $method) {
+  if(substr($method,0,3) === 'set'){
+    $attribute = strtolower(str_replace("set","",$method));
+    $product->$method(htmlspecialchars(trim($_GET[$attribute])));
+  }
+}
+$productsHandler->addProduct($product);
+header('Location: index.php');
+
+/*
 if(isset($_GET['sku'])) {
   switch ($_GET['productType']) {
       case 'DVD':
@@ -19,6 +35,5 @@ if(isset($_GET['sku'])) {
           $productsHandler->addProduct($book);
           break;
   };
-  header('Location: index.php');
-}
+}*/
  ?>

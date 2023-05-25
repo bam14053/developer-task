@@ -5,8 +5,9 @@ abstract class Product {
   private $sku;
   private $name;
   private $price;
+  public static $children = array ("Furniture", "DVD", "Book");
 
-  public function __construct($sku, $name, $price){
+  public function __construct($sku = 0, $name = false, $price = 0){
     $this->sku = $sku;
     $this->name = $name;
     $this->price = $price;
