@@ -5,13 +5,6 @@ class ProductsHandler {
 
   public function __construct(){
     $this->conn = new mysqli(Credentials::$servername, Credentials::$username, Credentials::$password, Credentials::$dbname);
-  }
-
-  public function __destruct(){
-      $this->conn->close();
-  }
-
-  function getProductsList(){
     // Check connection
     if ($this->conn->connect_error) {
       die("Connection to the database failed, please contact the admin for more information");
@@ -61,6 +54,10 @@ class ProductsHandler {
       }
     }
     $this->products = $products;
+  }
+
+  public function __destruct(){
+      $this->conn->close();
   }
 
   function deleteProducts($skuIDs){
